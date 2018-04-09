@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+C:\Users\Christian\Dropbox\Adventure Game\Christian\.metadata\.plugins\org.eclipse.jdt.core
+31278115.index

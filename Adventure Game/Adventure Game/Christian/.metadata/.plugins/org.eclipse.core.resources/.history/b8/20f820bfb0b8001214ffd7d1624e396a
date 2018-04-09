@@ -1,0 +1,44 @@
+//This breaks strings up word for word
+public class Room1 {
+	public static boolean bookshelfSolved = false;
+	public static void main (String[] args)
+{
+		if(TextGUI.game.getText().equals("go north"))
+		{
+			if(TextGUI.hasKey1 == true)
+			{
+				TextGUI.roomNum=5;
+				TextGUI.area.setText(TextGUI.area.getText() + "\n nothing here");
+			}
+			else
+				TextGUI.area.setText(TextGUI.area.getText() + "\nNo matter how hard you try, the door won't budge.");
+		}
+		
+		else if(TextGUI.game.getText().equals("go east"))
+		{
+			if(bookshelfSolved == true)
+			{
+				TextGUI.roomNum=2;
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nThe door opens with ease.\nDiscription for room 2");
+			}
+			else
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nThe door appears to be locked; you bash and bang but it won't open, judgeing by the insevirity of the burns it's probably also fireproof.");
+		}
+		
+			else if(TextGUI.game.getText().equals("pick up book")||TextGUI.game.getText().equals("lift book")||TextGUI.game.getText().equals("pull book")||TextGUI.game.getText().equals("take book")||TextGUI.game.getText().equals("get book"))
+			{
+				TextGUI.area.setText(TextGUI.area.getText() + "\nYou hear what sounds like cogs operateing behind the walls, then suddently you hear a lound clunk behind the east door, perhaps you should investigate.");
+				bookshelfSolved = true;
+			}
+		
+			else if(TextGUI.game.getText().equals("examine bookshelf")||TextGUI.game.getText().equals("look at bookshelf")||TextGUI.game.getText().equals("examine bookcase")||TextGUI.game.getText().equals("look at bookcase"))
+				TextGUI.area.setText(TextGUI.area.getText() + "\nThe bookshelf appears to have been constructed in an old style, however the shelf appears to be completely undamaged. Surounding the bookshelf are many pages and destroyed books, yet one book still remains on the shelf, it looks to be in as good condition as the shelf on which it rests.");
+		
+			else if(TextGUI.game.getText().equals("loot at rug")||TextGUI.game.getText().equals("examin rug"))
+				TextGUI.area.setText(TextGUI.area.getText() + "\nThe rug is torn and soaked; it looks as though it would turn to dust if you touched it.");
+		
+			else if(TextGUI.game.getText().equals("look around"))
+				TextGUI.area.setText(TextGUI.area.getText() + "\nYou find yourself in a small damp room there is are reminants of an old rug on the floor, and dim lighting that seems to be coming from nowhere; in the corner there is an old bookshelf, many pages and books are on the ground, yet one book still remains on the shelf. Behind you to the south is the cave entrance, to the west there is a wooden door, it appears to have a few burn marks on it, and a few signs of applied force aswell, and to the north is another door; this door is made of metal, it appears to have been under heavy amounts of force judgeing by the large dents on the front.");
+		}
+	
+}

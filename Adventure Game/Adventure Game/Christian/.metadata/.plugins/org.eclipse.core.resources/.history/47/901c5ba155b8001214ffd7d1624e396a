@@ -1,0 +1,94 @@
+import javax.swing.*;
+import javax.swing.ImageIcon;
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+	
+public class TextGUI extends JFrame
+							implements ActionListener
+
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 0001L;
+	/**
+	 * 
+	 */
+	public static final int WIDTH = 1000;
+	public static final int HEIGHT = 500;
+	public static final int NUMBER_OF_CHAR = 30;
+
+	
+	public static JTextField game;
+	public static JTextArea area;
+	public static int roomNum = 0;
+	public static String playerName;
+	public static boolean hasKey1 = false;
+	
+	public static void main(String[] args) {
+		
+		TextGUI gui = new TextGUI();
+		gui.setVisible(true);
+		
+	}
+	public TextGUI()
+	{
+		//Setting to properties of the window
+		super("quest of champions and random sacrificial villagers");
+		setSize(WIDTH, HEIGHT);
+		Image icon = new ImageIcon("icon.jpg").getImage();
+		setIconImage(icon);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new GridLayout(1,1));
+		
+		//Adding in the input box so that it is black with white text
+		JPanel gamePanel = new JPanel();
+		gamePanel.setLayout (new BorderLayout());
+		gamePanel.setBackground(Color.BLACK);
+		game = new JTextField(NUMBER_OF_CHAR);
+		game.setBackground(Color.BLACK);
+		game.setForeground(Color.WHITE);
+		game.requestFocus(true);
+		 game.addKeyListener(new KeyAdapter() {
+			 //This has the box detect when enter is tapped then has it run handeler
+		      public void keyPressed(KeyEvent e)
+		      {
+		        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		        {
+		        area.setText(area.getText() + "\n" + game.getText());
+		        //Set to lowercase to avoid case issues
+		        area.getText().toLowerCase();
+		          Handeler.main(null);
+		          game.setText("");
+		        }
+		      }
+		    });
+		 //This is the output box, black bakground, white text, cannot be typed into ect.
+		gamePanel.add(game, BorderLayout.SOUTH);
+		JTextArea gameLabel = new JTextArea("Welcome to PLACE_NAME_HERE, you have been sent by your doubtful father, to defeat the Orc king in the deep caves of Na'Gul", 5, 20);
+		gameLabel.setLineWrap(true);
+		gameLabel.setText(gameLabel.getText() + "\n I am UN-NAMED the gaurdina of this cave, please tell me your name.");
+		gameLabel.setBackground(Color.BLACK);
+		gameLabel.setForeground(Color.WHITE);
+		gameLabel.setEditable(false);
+		area = (JTextArea) gameLabel;
+		//adding scroll bars to the output box
+		JScrollPane scrollText = new JScrollPane(gameLabel);
+		gamePanel.add(scrollText, BorderLayout.CENTER);
+		
+		add(gamePanel);
+	}
+	@Override
+	//This was auto generated, but I don't wanna touch it in case I mess somthing up :/
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
+

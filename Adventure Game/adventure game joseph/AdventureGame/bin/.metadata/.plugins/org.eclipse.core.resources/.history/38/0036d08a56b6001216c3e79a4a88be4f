@@ -1,0 +1,17 @@
+//This breaks strings up word for word
+public class Room1 {
+	public static void main (String[] args)
+{
+		if(TextGUI.game.getText().equals("go north"))
+		{
+			TextGUI.roomNum=5;
+			Handeler.main(null);
+			
+		}
+		else if(TextGUI.game.getText().equals("east"))
+		{
+			TextGUI.roomNum=2;
+			Handeler.main(null);
+		}
+	}
+}

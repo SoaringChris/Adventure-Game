@@ -1,0 +1,12 @@
+{
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  },
+  "C:\\Users\\joseph\\Dropbox\\Adventure Game\\adventure game joseph\\adventuregame": {
+    "location": "C:\\Users\\joseph\\Dropbox\\Adventure Game\\adventure game joseph\\adventuregame",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\joseph\\Dropbox\\Adventure Game\\adventure game joseph\\adventuregame\u0027. Skipped."
+  }
+}

@@ -1,0 +1,108 @@
+
+//This separates words in the input
+public class Handeler {
+public static void main (String[] args)
+{
+	if(TextGUI.game.getText().equals("help"))
+	{
+		//if this passes the help info is displayed
+		TextGUI.area.setText(TextGUI.area.getText() + "\nThis is the list of commands in this game. Please note that none of these are actually implemented yet.\nGo\nExamin\nPick up\nUse\nSpeak to");
+	}
+	//These first few else ifs check to see if common basic commands are being run so that they don't need to be coded in each room
+	else if(TextGUI.game.getText().equals("do"))
+	{
+		TextGUI.area.setText(TextGUI.area.getText() + "\nWhat do you want to do?");
+	}
+	else if(TextGUI.game.getText().equals("go"))
+	{
+		TextGUI.area.setText(TextGUI.area.getText() + "\nWhere do you want to go?");
+	}
+	else if(TextGUI.game.getText().equals("use"))
+	{
+		TextGUI.area.setText(TextGUI.area.getText() + "\nWhat do you want to use?");
+	}
+	else if(TextGUI.game.getText().equals("take"))
+	{
+		TextGUI.area.setText(TextGUI.area.getText() + "\nWhat do you want to take?");
+	}
+	
+	else if(TextGUI.roomNum == 0)
+		//room 0 is really just used in the intro to name the player
+			{
+			TextGUI.playerName = TextGUI.game.getText();
+			TextGUI.area.setText(TextGUI.area.getText() + "\n Hello, This is your story, you are about to embark on a great adventure full of wonder and awe, your name is " + TextGUI.playerName + " You were born into a world of poverty and misery, Sad indeed. \n Raised by two powerful garden gnomes, you are constantly challenged. \n Jumping into a pond of carnivorous tadpoles has been your biggest regret. \n you enjoy speaking to animals, this is probably why you have no friends. \n A few minutes ago, you did not remember what your name was...");
+			TextGUI.roomNum+=1;
+			TextGUI.area.setText(TextGUI.area.getText() + "there are doors to the north and east of you, which direction do you go?");
+			}
+	//Handeler will then detect the current room, then run that room's script.
+	else if (TextGUI.roomNum==1)
+	{
+		Room1.main(null);
+	}
+	else if (TextGUI.roomNum ==2)
+		{
+			room2.main(null);
+		}
+	else if (TextGUI.roomNum ==3)
+		{
+			room3.main(null);
+		}
+	else if(TextGUI.roomNum==4)
+		{
+			room4.main(null);
+		}
+	else if(TextGUI.roomNum == 5)
+		{
+			room5.main(null);
+		}
+	else if(TextGUI.roomNum==6)
+		{
+			room6.main(null);
+		}
+	else if(TextGUI.roomNum==7)
+		{
+			room7.main(null);
+		}
+	else if(TextGUI.roomNum==8)
+		{
+			room8.main(null);
+		}
+	else if(TextGUI.roomNum==9)
+		{
+			room9.main(null);
+		}
+	else if(TextGUI.roomNum==10)
+		{
+			room10.main(null);
+		}
+	else if(TextGUI.roomNum==11)
+		{
+			room11.main(null);
+		}
+	else if(TextGUI.roomNum==12)
+		{
+			room12.main(null);
+		}
+	else if(TextGUI.roomNum==13)
+		{
+			room13.main(null);
+		}
+	else if(TextGUI.roomNum==14)
+		{
+			room14.main(null);
+		}
+	else if(TextGUI.roomNum==15)
+		{
+			room15.main(null);
+		}
+	else if(TextGUI.roomNum==16)
+		{
+			room16.main(null);
+		}
+	//if somehow none of handeler's ifs got passed this error message will display
+	else
+		//Debugger
+		TextGUI.area.setText(TextGUI.area.getText() + "\nOH NOES! Looks like somthing went wrong or nothing is programed to respond to this yet, try typeing 'help'");
+	
+}
+}

@@ -1,0 +1,80 @@
+import javax.swing.*;
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+	
+public class TextGUI extends JFrame
+							implements ActionListener
+
+{
+	/**
+	 * 
+	 */
+	public static final int WIDTH = 1000;
+	public static final int HEIGHT = 500;
+	public static final int NUMBER_OF_CHAR = 30;
+	
+	public static JTextField game;
+	public static JTextArea area;
+	public static int roomNum = 0;
+	public static String playerName;
+	public static boolean HasKey = false;
+	
+	public static void main(String[] args) {
+		
+		TextGUI gui = new TextGUI();
+		gui.setVisible(true);
+		
+	}
+	public TextGUI()
+	{
+		super("quest of champions and random sacrificial villagers");
+		setSize(WIDTH, HEIGHT);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new GridLayout(1,1));
+		
+		JPanel gamePanel = new JPanel();
+		gamePanel.setLayout (new BorderLayout());
+		gamePanel.setBackground(Color.BLACK);
+		game = new JTextField(NUMBER_OF_CHAR);
+		game.setBackground(Color.BLACK);
+		game.setForeground(Color.WHITE);
+		 game.addKeyListener(new KeyAdapter() {
+		      public void keyPressed(KeyEvent e)
+		      {
+		        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+		        {
+		        area.setText(area.getText() + "\n" + game.getText());
+		        area.getText().toLowerCase();
+		          Handeler.main(null);
+		          game.setText("");
+		        }
+		      }
+		    });
+		gamePanel.add(game, BorderLayout.SOUTH);
+		JTextArea gameLabel = new JTextArea("Welcome to PLACE_NAME_HERE, you have been sent by your doubtful father, to defeat the Orc king in the deep caves of Na'Gul", 5, 20);
+		gameLabel.setLineWrap(true);
+		gameLabel.setText(gameLabel.getText() + "\n I am UN-NAMED the gaurdina of this cave, please tell me your name.");
+		gameLabel.setBackground(Color.BLACK);
+		gameLabel.setForeground(Color.WHITE);
+		gameLabel.setEditable(false);
+		gameLabel.requestFocus();
+		area = (JTextArea) gameLabel;
+		
+		JScrollPane scrollText = new JScrollPane(gameLabel);
+		gamePanel.add(scrollText, BorderLayout.CENTER);
+		
+		add(gamePanel);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
+

@@ -1,0 +1,58 @@
+public class room2
+{
+	static boolean levers = false;
+	static boolean useingLevers = false;
+	static boolean lever1 = false;
+	static boolean lever2 = false;
+	static boolean lever3 = false;
+	public static void main (String[] args)
+	{
+		if(levers == false && (TextGUI.game.getText().equals("use levers")))
+		{
+		TextGUI.area.setText(TextGUI.area.getText() + "\nYou approach the levers");
+		useingLevers = true;
+		}
+		if(useingLevers == true)
+		{
+			if(TextGUI.game.getText().equals("leave levers") || TextGUI.game.getText().equals("leave"))
+			{
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nYou step away from the levers.");
+				useingLevers = false;
+			}
+			else if(lever1 == false)
+			{
+				if(TextGUI.game.getText().equals("pull left lever"))
+				{
+					lever1 = true;
+					TextGUI.area.setText(TextGUI.area.getText() + "\nYou pull down the lever and hear it lock into place.");
+				}
+				else
+					TextGUI.area.setText(TextGUI.area.getText() + "\nThe lever goes back to an upright position, perhaps this was the wrong lever to pull.");
+			}
+		
+			else if(lever2 == false)
+			{
+				if(TextGUI.game.getText().equals("pull right lever"))
+				{
+					lever2 = true;
+					TextGUI.area.setText(TextGUI.area.getText() + "\nYou pull down the lever and hear it lock into place.");
+				}
+				else
+				{
+					TextGUI.area.setText(TextGUI.area.getText() + "\nThe levers go back to an upright position, perhaps this was the wrong lever to pull.");
+					lever1 = false;
+				}
+			}
+		
+			else if(lever3 == false)
+			{
+				if(TextGUI.game.getText().equals("pull middle lever"))
+				{
+					lever3 = true;
+					TextGUI.area.setText(TextGUI.area.getText() + "\nYou pull down the lever and hear it lock it to place, you hear a noise at the door, perhaps it will now open for you.");
+					levers = true;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+import java.util.*;
+public class room5
+{
+	public static void main (String[] args)
+	{
+		
+		if(TextGUI.game.getText().equals("north"))
+		{
+			TextGUI.roomNum=9;
+			Handeler.main(null);
+		}
+		else if(TextGUI.game.getText().equals("south"))
+		{
+			TextGUI.roomNum=1;
+			Handeler.main(null);
+		}
+		else if(TextGUI.game.getText().equals("east"))
+		{
+			TextGUI.roomNum=6;
+			Handeler.main(null);
+		}
+	}
+}

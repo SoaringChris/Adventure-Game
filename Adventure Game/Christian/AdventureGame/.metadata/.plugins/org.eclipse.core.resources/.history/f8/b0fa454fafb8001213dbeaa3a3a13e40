@@ -1,0 +1,35 @@
+//This breaks strings up word for word
+public class Room1 {
+	public static boolean bookshelfSolved = false;
+	public static void main (String[] args)
+{
+		if(TextGUI.game.getText().equals("go north"))
+		{
+			if(TextGUI.hasKey1 == true)
+			{
+				TextGUI.roomNum=5;
+				TextGUI.area.setText(TextGUI.area.getText() + "\n nothing here");
+			}
+			else
+				TextGUI.area.setText(TextGUI.area.getText() + "\nNo matter how hard you try, the door won't budge.");
+		}
+		
+		else if(TextGUI.game.getText().equals("go east"))
+		{
+			if(bookshelfSolved == true)
+			{
+				TextGUI.roomNum=2;
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nThe door opens with ease.\nDiscription for room 2");
+			}
+			else
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nThe door appears to be locked; you bash and bang but it won't open, judgeing by the insevirity of the burns it's probably also fireproof.");
+		}
+		
+			else if(TextGUI.game.getText().equals("pick up book")||TextGUI.game.getText().equals("lift book")||TextGUI.game.getText().equals("pull book"))
+			{
+				TextGUI.area.setText(TextGUI.area.getText() + "\nYou hear what sounds like cogs operateing behind the walls, then suddently you hear a lound clunk behind the east door, perhaps you should investigate.");
+				bookshelfSolved = true;
+			}
+		}
+	
+}

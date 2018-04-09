@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+C:\Users\joseph\Dropbox\Adventure Game\Christian\AdventureGame\.metadata\.plugins\org.eclipse.jdt.core

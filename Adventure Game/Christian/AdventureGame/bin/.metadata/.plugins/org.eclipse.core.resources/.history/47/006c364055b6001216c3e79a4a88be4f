@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+
+//This breaks strings up word for word
+public class Room1 {
+	public static void main (String[] args)
+{
+		@SuppressWarnings("resource")
+		Scanner keyboard = new Scanner(System.in);
+		String s = keyboard.nextLine();
+		if(s == "north")
+		{
+			TextGUI.roomNum=5;
+			Handeler.main(null);
+		}
+		else if(s == "east")
+		{
+			TextGUI.roomNum=2;
+			Handeler.main(null);
+		}
+	}
+}

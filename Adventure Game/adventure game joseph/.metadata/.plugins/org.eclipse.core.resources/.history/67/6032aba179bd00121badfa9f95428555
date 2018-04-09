@@ -1,0 +1,99 @@
+package AdventureGame;
+public class room2
+{
+	public static boolean levers = false;
+	static boolean useingLevers = false;
+	static boolean lever1 = false;
+	static boolean lever2 = false;
+	static boolean lever3 = false;
+	
+	public static void main (String[] args)
+	{
+		//Check to see if the player has already solved the puzzle, and if they want to attempt it
+		if(useingLevers == false && levers == false && (TextGUI.game.getText().equals("use levers")||TextGUI.game.getText().equals("examine levers")))
+		{
+		TextGUI.area.setText(TextGUI.area.getText() + "\nYou approach the levers");
+		useingLevers = true;
+		}
+		//If they are using the levers the game will respond depending on which levers they pulled, and in what order
+		else if(useingLevers == true)
+		{
+			if(TextGUI.game.getText().equals("leave levers") || TextGUI.game.getText().equals("leave")||TextGUI.game.getText().equals("back up")||TextGUI.game.getText().equals("back"))
+			{
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nYou step away from the levers.");
+				useingLevers = false;
+			}
+			else if(lever1 == false)
+			{
+				if(TextGUI.game.getText().equals("pull left lever"))
+				{
+					lever1 = true;
+					TextGUI.area.setText(TextGUI.area.getText() + "\nYou pull down the lever and hear it lock into place.");
+				}
+				else if(TextGUI.game.getText().equals("pull right lever")||TextGUI.game.getText().equals("pull middle lever"))
+					TextGUI.area.setText(TextGUI.area.getText() + "\nThe lever goes back to an upright position, perhaps this was the wrong lever to pull.");
+			}
+		
+			else if(lever2 == false)
+			{
+				if(TextGUI.game.getText().equals("pull right lever"))
+				{
+					lever2 = true;
+					TextGUI.area.setText(TextGUI.area.getText() + "\nYou pull down the lever and hear it lock into place.");
+				}
+				else if(TextGUI.game.getText().equals("pull left lever")||TextGUI.game.getText().equals("pull middle lever"))
+				{
+					TextGUI.area.setText(TextGUI.area.getText() + "\nThe levers go back to an upright position, perhaps this was the wrong lever to pull.");
+					lever1 = false;
+				}
+			}
+		
+			else if(lever3 == false)
+			{
+				if(TextGUI.game.getText().equals("pull middle lever"))
+				{
+					lever3 = true;
+					TextGUI.area.setText(TextGUI.area.getText() + "\nYou pull down the lever and hear it lock it to place, you hear a noise at the door, perhaps it will now open for you.");
+					levers = true;
+				}
+			}
+			else if(TextGUI.game.getText().equals("pull lever"))
+					TextGUI.area.setText(TextGUI.area.getText() + "\nWhich lever do you want to pull?");
+			
+			else
+				TextGUI.area.setText(TextGUI.area.getText()+ "\nYou can't do that now, try stepping back first.");
+		}
+		
+		else if(TextGUI.game.getText().equals("go east")||TextGUI.game.getText().equals("open east door"))
+		{
+			if(levers == true)
+			{
+				TextGUI.roomNum = 3;
+				TextGUI.area.setText(TextGUI.area.getText() + "\nThe Door swings open with ease.\nthere is a door with an inscription above it saying\n what walks on 4 legs in the morining\n 2 legs in the afternoon\n and 3 legs in the evening? \nthere is a chisel hanging next to a blank piece of wall under the inscription");
+			}
+			else
+				TextGUI.area.setText(TextGUI.area.getText() + "\nNo matter how hard you try the door won't budge, figures");
+		}
+		else if(TextGUI.game.getText().equals("look around"))
+			TextGUI.area.setText(TextGUI.area.getText() + "\nRoom2 dicription");
+		
+		else if(TextGUI.game.getText().equals("go west") && TextGUI.hasKey1 == false ||TextGUI.game.getText().equals("open west door") && TextGUI.hasKey1 == false)
+		{
+			TextGUI.area.setText(TextGUI.area.getText() + "\nYou pass thorough the door.\nYou are back in the room with the bookcase; the north door is still locked.");
+			TextGUI.roomNum = 1;
+		}
+		else if(TextGUI.game.getText().equals("go west")||TextGUI.game.getText().equals("open west door") && TextGUI.hasKey1 == true)
+		{
+			TextGUI.area.setText(TextGUI.area.getText() + "\nYou pass thorough the door.\nYou are back in the room with the bookcase; maybe the mural piece will help you open the door?");
+			TextGUI.roomNum = 1;
+		}
+		else if(TextGUI.game.getText().equals("pull lever")||TextGUI.game.getText().equals("pull right lever")||TextGUI.game.getText().equals("pull middle lever")||TextGUI.game.getText().equals("pull right lever"))
+		{
+			TextGUI.area.setText(TextGUI.area.getText() + "\nYou'll need to get closer to do that.");
+			TextGUI.roomNum = 1;
+		}
+		else
+			TextGUI.area.setText(TextGUI.area.getText() + "\nI don't understand \"" + TextGUI.game.getText() + "\"");
+	}
+	
+}

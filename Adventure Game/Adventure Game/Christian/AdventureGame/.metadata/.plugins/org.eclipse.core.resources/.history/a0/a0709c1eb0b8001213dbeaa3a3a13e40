@@ -1,0 +1,27 @@
+public class room2
+{
+	public static boolean levers = false;
+	public static void main (String[] args)
+	{
+		if(TextGUI.game.getText().equals("go west"))
+		{
+			TextGUI.roomNum = 1;
+		}
+		if(TextGUI.game.getText().equals("pull left lever"))
+		{
+			if(TextGUI.game.getText().equals("pull right lever"));
+			{
+				if(TextGUI.game.getText().equals("pull middle lever"));
+				{
+					TextGUI.game.setText(TextGUI.game.getText() +  "you hear a series of gears rumbling behind the metal door, perhaps it has opened now?");
+					levers = true;
+					 
+				}
+			}
+		}
+		else
+		{
+			TextGUI.game.setText(TextGUI.game.getText() + "the lever goes back to an upright position, perhaps this was the wrong lever to pull");
+		}
+	}
+}
